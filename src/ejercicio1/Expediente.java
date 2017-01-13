@@ -7,17 +7,24 @@ import java.util.List;
 public class Expediente {
 
     private List<Acceso> accesos;
+    private Paciente paciente;
 
-    public Expediente() {
+
+    public Expediente(Paciente p) {
         accesos = new ArrayList<>();
+        this.paciente = p;
+        p.addExpediente(this);
     }
-
     void addAcceso(Acceso a) {
         accesos.add(a);
     }
 
     void removeAcceso(Acceso a) {
         accesos.remove(a);
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
     }
 
     public List<Profesional> getProfesionales() {
@@ -27,4 +34,5 @@ public class Expediente {
         }
         return resultado;
     }
+
 }

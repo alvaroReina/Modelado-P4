@@ -43,8 +43,8 @@ public class Acceso {
         return profesional;
     }
 
-    public void setProfesional(Profesional accesor) {
-        this.profesional = accesor;
+    public void setProfesional(Profesional p) {
+        this.profesional = p;
     }
 
     public Expediente getExpediente() {

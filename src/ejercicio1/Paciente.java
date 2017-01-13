@@ -9,10 +9,10 @@ public class Paciente {
     private List<Expediente> expedientes;
     private Expediente expedienteAbierto;
 
-    public Paciente(Expediente e){
+    public Paciente() {
         expedientes = new ArrayList<>();
-        expedientes.add(e);
         expedienteAbierto = null;
+        new Expediente(this);
     }
 
     public List<Expediente> getExpedientes() {
@@ -20,11 +20,11 @@ public class Paciente {
     }
 
     public void addExpediente(Expediente e) {
+        if (!e.getPaciente().equals(this)){
+            throw new RuntimeException("Se ha intentado añadir un expediente asignado a otro paciente");
+        }
         expedientes.add(e);
-    }
 
-    public void removeExpediente(Expediente e){
-        expedientes.remove(e)
     }
 
     public Expediente getExpedienteAbierto() {
